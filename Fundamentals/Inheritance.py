@@ -1,6 +1,6 @@
 # Inheritance = aqcuiring properties from parent class
 
-from OOP import Calculator
+from Fundamentals.OOP import Calculator
 class Child(Calculator):
     number = 200
     def __init__(self):     # If parent constructor is not default, has some code inside, has a meaning, we will need to add a child constructor to call the parent constructor
