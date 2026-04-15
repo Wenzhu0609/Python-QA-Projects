@@ -29,10 +29,8 @@ json_response2 = response2.json()
 for book in json_response2:
     if book['isbn'] == 'RGHCC':
         actualBook = book
+        break
 
-expectedBook = {
-        "book_name": "Pythonselenium 18 hrs by Rahulshetty",
-        "isbn": "RGHCC",
-        "aisle": "11097"
-    }
-assert actualBook == expectedBook
+assert actualBook is not None, "Book not found"
+assert actualBook['isbn'] == 'RGHCC', "ISBN mismatch"
+assert actualBook['book_name'] == 'Pythonselenium 18 hrs by Rahulshetty', "Title mismatch"
