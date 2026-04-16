@@ -1,21 +1,16 @@
-import requests
+import json
+import configparser         # the defult package available in Python
 from Payload import *
+from utilities.configurations import *
 
-# API Configuration in file. There's also another way to set up global configurations, see properties.ini file.
-BASE_URL = "http://216.10.245.166"
-LIBRARY_ADDBOOK = f"{BASE_URL}/Library/Addbook.php"
-LIBRARY_DELETEBOOK = f"{BASE_URL}/Library/DeleteBook.php"
+import requests
+
+# Utilizing global configuration:
 
 # Add a book
 addBook_response = requests.post(
-    LIBRARY_ADDBOOK,
-    # json={                                                # Including all data in here makes the code look messy
-    #     "name": "My First Ontario Bird Book",
-    #     "isbn": "1459507371",
-    #     "aisle": "157",
-    #     "author": "Jeffrey C. Domm"
-    # },
-    json=addBookPayload("aert34"),                                  # Writing all payload elsewhere and import to use makes code look clean, and made the data reusable. Here we are typing in a random isbn for unique results.
+    getConfig()['API']['endpoint']+'/Library/Addbook.php',
+    json=addBookPayload("aert34"),
     headers={"Content-Type": "application/json"}
 )
 
@@ -33,7 +28,7 @@ else:
 
 # Delete a book
 deleteBook_response = requests.post(
-    LIBRARY_DELETEBOOK,
+    getConfig()['API']['endpoint']+'/Library/DeleteBook.php',
     json= {
         "ID": bookID
     },
