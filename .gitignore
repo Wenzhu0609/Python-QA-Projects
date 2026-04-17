@@ -1,2 +1,9 @@
+
+# Ignore the virtual environment
 /.venv
-/Exercise_10_Answer.py
+
+# Ignore the answerkey
+Fundamentals/Exercises/Exercise_10_Answer.py
+
+# Ignor the secrets file
+.env

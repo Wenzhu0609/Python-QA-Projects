@@ -1,5 +1,13 @@
 
 import configparser
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+def getCredentials():
+    user = os.getenv("GitHub_API_username")
+    token = os.getenv("GitHub_API_token")
+    return user, token
 
 
 def getConfig():
