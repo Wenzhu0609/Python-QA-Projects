@@ -15,3 +15,6 @@ def getConfig():
     config.read('Python_Back_End_Automaton/utilities/properties.ini')   # the variable now has all the knowledge about allt he values present in the properties.ini file.
     return config
 
+def getGithubUrl(path=""):
+    base_url = getConfig()['API']['github_endpoint']
+    return f"{base_url}{path}"
