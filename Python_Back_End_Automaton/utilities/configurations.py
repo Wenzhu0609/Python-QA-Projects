@@ -1,20 +1,45 @@
-
 import configparser
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
-def getCredentials():
+
+
+def get_credentials():
     user = os.getenv("GitHub_API_username")
     token = os.getenv("GitHub_API_token")
+
+    if not user or not token:
+        raise ValueError(
+            "Missing GitHub credentials. Set GitHub_API_username and GitHub_API_token in your environment."
+        )
+
     return user, token
 
 
-def getConfig():
-    config = configparser.ConfigParser()    # the method stored in one variable
-    config.read('Python_Back_End_Automaton/utilities/properties.ini')   # the variable now has all the knowledge about allt he values present in the properties.ini file.
+def get_config():
+    config = configparser.ConfigParser()
+    config_path = Path(__file__).resolve().parent / "properties.ini"
+    config.read(config_path)
+
+    if "API" not in config:
+        raise ValueError(f"Missing API section in config file: {config_path}")
+
     return config
 
-def getGithubUrl(path=""):
-    base_url = getConfig()['API']['github_endpoint']
+
+def get_github_url(path=""):
+    base_url = get_config()["API"]["github_endpoint"]
     return f"{base_url}{path}"
+
+
+def get_rsa_url(path=""):
+    base_url = get_config()["API"]["rsa_endpoint"]
+    return f"{base_url}{path}"
+
+
+def get_httpbin_url(path=""):
+    base_url = get_config()['API']['httpbin_endpoint']
+    return f"{base_url}{path}"
+

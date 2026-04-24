@@ -7,8 +7,8 @@ from utilities.resources import *
 import requests
 
 # Utilizing global configuration:
-addBook_url = getConfig()['API']['library_endpoint'] + ApiResources.addBook
-deleteBook_url = getConfig()['API']['library_endpoint'] + ApiResources.deleteBook
+addBook_url = get_config()['API']['library_endpoint'] + ApiResources.addBook
+deleteBook_url = get_config()['API']['library_endpoint'] + ApiResources.deleteBook
 
 headers={"Content-Type": "application/json"}
 # Add a book
