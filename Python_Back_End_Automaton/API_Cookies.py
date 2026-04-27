@@ -10,9 +10,9 @@ from utilities.configurations import *
 rsa_cookie = {'visit-month':'February'}
 rsa_url = get_rsa_url()
 
-rahulshetty_response = requests.get(rsa_url,cookies=rsa_cookie)
+rsa_response = requests.get(rsa_url,cookies=rsa_cookie)
 # print(rahulshetty_response.status_code)
-assert rahulshetty_response.status_code == 200
+assert rsa_response.status_code == 200
 
 se = requests.Session()
 se.cookies.update({'visit-month':'February'})
