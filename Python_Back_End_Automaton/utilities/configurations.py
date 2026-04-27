@@ -43,3 +43,8 @@ def get_httpbin_url(path=""):
     base_url = get_config()['API']['httpbin_endpoint']
     return f"{base_url}{path}"
 
+
+def get_swagger_petstore_url(path=""):
+    base_url = get_config()['API']['swagger_petstore_endpoint']
+    return f"{base_url}{path}"
+
