@@ -2,11 +2,11 @@ import requests
 import json
 from Payload import *
 from utilities.resources import *
-from utilities.configurations import *
+from utilities.configurations import get_github_url, get_github_credentials
 
 # Authentication
 url_user = get_github_url("/user")
-user, token = get_credentials()
+user, token = get_github_credentials()
 github_response = requests.get(url_user, auth=(user, token))
 # print(github_response.status_code)
 assert github_response.status_code == 200
