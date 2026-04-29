@@ -1,6 +1,5 @@
 import requests
-import json
-from Payload import *
+from Python_Back_End_Automation.api.Payload import *
 from utilities.resources import *
 from utilities.configurations import get_github_url, get_github_credentials
 

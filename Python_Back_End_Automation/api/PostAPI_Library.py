@@ -1,5 +1,5 @@
 import requests
-from Payload import *
+from Python_Back_End_Automation.api.Payload import *
 
 # API Configuration in file. There's also another way to set up global configurations, see properties.ini file.
 BASE_URL = "http://216.10.245.166"

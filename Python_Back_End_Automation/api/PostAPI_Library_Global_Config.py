@@ -1,6 +1,4 @@
-import json
-import configparser         # the defult package available in Python
-from Payload import *
+from Python_Back_End_Automation.api.Payload import *
 from utilities.configurations import *
 from utilities.resources import *
 

@@ -1,4 +1,4 @@
-import configparser
+import configparser             # A built-in Python module that reads settings from .ini / .cfg style files.
 import os
 import mysql.connector
 from mysql.connector import Error

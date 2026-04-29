@@ -1,5 +1,4 @@
 import requests
-import json
 
 response = requests.get('http://216.10.245.166/Library/GetBook.php', 
              params={"AuthorName":"Fannie Flagg"},)
@@ -14,7 +13,7 @@ response = requests.get('http://216.10.245.166/Library/GetBook.php',
 # The open with .json method:
 json_response = response.json()     # .json() automatically did all the 'resposne.text', json.loads(response.text), and converting in one step
 print(type(json_response))
-print(json_response[0]['isbn'])
+print(json_response)
 
 # Check resposne status code:
 assert response.status_code == 200
