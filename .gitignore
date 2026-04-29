@@ -1,9 +1,19 @@
 
 # Ignore the virtual environment
-/.venv
+.venv/
 
 # Ignore the answerkey
 Fundamentals/Exercises/Exercise_10_Answer.py
 
-# Ignor the secrets file
+# Ignore secrets files
 .env
+
+# Ignore personal VS Code settings, but keep shared launch configs
+.vscode/settings.json
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore macOS metadata
+.DS_Store
