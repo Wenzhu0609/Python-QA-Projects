@@ -9,8 +9,13 @@ addBook_url = get_config()['API']['library_endpoint'] + ApiResources.addBook
 deleteBook_url = get_config()['API']['library_endpoint'] + ApiResources.deleteBook
 
 headers={"Content-Type": "application/json"}
-# Add a book
-addBook_response = requests.post(addBook_url, json=addBookPayload("aert34"), headers=headers)
+# Add a book from payload - hardcoded version:
+#addBook_response = requests.post(addBook_url, json=add_book_payload("aert34"), headers=headers)
+
+# Add a book from payload - dynamic version:
+query = "select * from Books"
+addBook_response = requests.post(addBook_url, json=build_payload_from_db(query), headers=headers)
+
 
 addBook_response_json = addBook_response.json()
 print(addBook_response_json)

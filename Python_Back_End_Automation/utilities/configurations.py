@@ -85,3 +85,12 @@ def get_mysql_connection():
             return conn
     except Error as e:
         print(e)
+
+# To connect to MySQL, run a query, fetch one result row for use:
+def get_query(query):
+    conn = get_mysql_connection()
+    cursor = conn.cursor()
+    cursor.execute(query)
+    row = cursor.fetchone()
+    conn.close()
+    return row

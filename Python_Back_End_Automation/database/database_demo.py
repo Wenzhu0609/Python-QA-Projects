@@ -19,7 +19,7 @@ print(row[3])
 row = cursor.fetchone()         # Repeating  will cause it to fetch the next row, instead of the same one
 print(row)
 rowAll = cursor.fetchall()      # Fetches the remaining, not from the very begining
-print(rowAll)               # lIst of tuples
+print(rowAll)               # list of tuples
 
 
 conn.close
