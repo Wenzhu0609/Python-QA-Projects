@@ -1,11 +1,10 @@
-import configparser             # A built-in Python module that reads settings from .ini / .cfg style files.
+import configparser
 import os
-import mysql.connector
-from mysql.connector import Error
 from pathlib import Path
 from dotenv import load_dotenv
 
 ENV_PATH = Path(__file__).resolve().parents[1] / ".env"
+CONFIG_PATH = Path(__file__).resolve().parents[1] / "config" / "properties.ini"
 load_dotenv(ENV_PATH)
 
 
@@ -40,11 +39,10 @@ def get_mysql_credentials():
 
 def get_config():
     config = configparser.ConfigParser()
-    config_path = Path(__file__).resolve().parent / "properties.ini"
-    config.read(config_path)
+    config.read(CONFIG_PATH)
 
     if "API" not in config:
-        raise ValueError(f"Missing API section in config file: {config_path}")
+        raise ValueError(f"Missing API section in config file: {CONFIG_PATH}")
 
     return config
 
@@ -67,30 +65,3 @@ def get_httpbin_url(path=""):
 def get_swagger_petstore_url(path=""):
     base_url = get_config()['API']['swagger_petstore_endpoint']
     return f"{base_url}{path}"
-
-# For MySQL Connection:
-user, password = get_mysql_credentials()
-connect_config = {
-    'host': get_config()['SQL']['host'],
-    'database':get_config()['SQL']['database'],
-    'user':user,
-    'password':password
-}
-
-def get_mysql_connection():
-    try:
-        conn = mysql.connector.connect(**connect_config)
-        if conn.is_connected():
-            print("Connection Successful!")
-            return conn
-    except Error as e:
-        print(e)
-
-# To connect to MySQL, run a query, fetch one result row for use:
-def get_query(query):
-    conn = get_mysql_connection()
-    cursor = conn.cursor()
-    cursor.execute(query)
-    row = cursor.fetchone()
-    conn.close()
-    return row

@@ -1,8 +1,8 @@
 import requests
-from utilities.configurations import get_rsa_url
 
-# To avoid waiting forever for the server to respond, we set timeout value to let it give up the request once reach the waiting limit.
+from Python_QA_Framework.utilities.config import get_rsa_url
 
+# To avoid waiting forever for the server to respond, we set timeout value.
 rsa_url = get_rsa_url()
 response = requests.get(rsa_url, allow_redirects=False, timeout=2)
 

@@ -1,5 +1,5 @@
 import requests
-from utilities.configurations import get_rsa_url
+from Python_QA_Framework.utilities.config import get_rsa_url
 
 
 def test_redirect_behaviour():

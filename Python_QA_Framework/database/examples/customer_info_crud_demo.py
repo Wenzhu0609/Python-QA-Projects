@@ -1,7 +1,6 @@
-from utilities.configurations import get_mysql_connection
+from Python_QA_Framework.utilities.db_utils import get_mysql_connection
 
 
-# Configed way to connect to mysql database
 conn = get_mysql_connection()
 
 # To fetch from the database:
@@ -12,10 +11,10 @@ print(type(rows))
 print(rows)
 
 # Example of using data fetched from the database:
-sum = 0
+total = 0
 for row in rows:
-    sum = sum + row[2]
-print(sum)
+    total = total + row[2]
+print(total)
 
 # To make updates to the database:
 query = "update CustomerInfo set Location = %s where CourseName = %s"
@@ -31,5 +30,5 @@ conn.commit()
 
 
 
-
-conn.close
+cursor.close()
+conn.close()

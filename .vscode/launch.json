@@ -9,7 +9,7 @@
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
       "env": {
-        "PYTHONPATH": "${workspaceFolder}:${workspaceFolder}/Python_Back_End_Automation:${workspaceFolder}/Python_Back_End_Automation/api"
+        "PYTHONPATH": "${workspaceFolder}"
       }
     }
   ]

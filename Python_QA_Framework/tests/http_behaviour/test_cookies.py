@@ -1,5 +1,5 @@
 import requests
-from Python_Back_End_Automation.utilities.configurations import get_httpbin_url, get_rsa_url
+from Python_QA_Framework.utilities.config import get_httpbin_url, get_rsa_url
 
 
 def test_cookies():
