@@ -1,6 +1,6 @@
 # Python QA Projects
 
-This repository documents my progress building Python skills for Software Quality Assurance, API testing, backend automation, and test framework development.
+This repository showcases my hands-on Python QA automation practice, including REST API validation, backend test utilities, configuration handling, JSON data validation, file upload testing, authentication, and MySQL connectivity.
 
 The project includes foundational Python exercises plus a cleaner backend QA automation framework that works with REST APIs, configuration files, environment variables, JSON data, file uploads, redirects, timeouts, authentication, and MySQL connectivity.
 
