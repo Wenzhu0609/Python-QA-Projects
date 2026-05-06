@@ -17,3 +17,6 @@ __pycache__/
 
 # Ignore macOS metadata
 .DS_Store
+
+# Ignore in-process files
+Python_QA_Framework/tests/json_data/Trello_data_extraction.py

@@ -65,3 +65,17 @@ def get_httpbin_url(path=""):
 def get_swagger_petstore_url(path=""):
     base_url = get_config()['API']['swagger_petstore_endpoint']
     return f"{base_url}{path}"
+
+
+def get_file_path(file_path_key):
+    file_path = os.getenv(file_path_key)
+    if not file_path:
+        raise ValueError(
+            f"Missing file path. Set {file_path_key} in your environment."
+        )
+
+    return file_path
+
+
+def get_trello_file_path():
+    return get_file_path("sign_up_test_scenarios")
