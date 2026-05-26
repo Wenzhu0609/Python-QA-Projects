@@ -75,7 +75,3 @@ def get_file_path(file_path_key):
         )
 
     return file_path
-
-
-def get_trello_file_path():
-    return get_file_path("sign_up_test_scenarios")
